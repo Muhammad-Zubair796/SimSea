@@ -1,4 +1,3 @@
-// ---------------------- index2.js ----------------------
 let game; // global
 
 window.addEventListener('load', function() {
@@ -16,10 +15,6 @@ window.addEventListener('load', function() {
       this.keys = [];
       this.paused = false;
       this.soundOn = true;
-
-      // Example player position
-      this.playerY = height / 2;
-
       this.sounds = {
         shoot: document.getElementById('shoot'),
         powerUp: document.getElementById('powerUp'),
@@ -38,73 +33,44 @@ window.addEventListener('load', function() {
       const s = this.sounds[name];
       if (!s) return;
       s.currentTime = 0;
-      s.play().catch(() => {}); // avoid errors
+      s.play().catch(() => {});
     }
 
     togglePause() {
       this.paused = !this.paused;
       const icon = document.getElementById('pausePlayIcon');
-      if (icon) icon.src = this.paused ? 'assets/pngwing.com (39).png' : 'assets/pngwing.com (38).png';
+      if(icon) icon.src = this.paused ? 'assets/pngwing.com (39).png' : 'assets/pngwing.com (38).png';
     }
 
-    setDifficultyNormal() { alert('Normal mode'); }
-    setDifficultyDifficult() { alert('Difficult mode'); }
-    fullReset() { 
-      this.playerY = this.height / 2;
-      alert('Game Restarted'); 
-    }
+    setDifficultyNormal() { alert('Normal mode selected'); }
+    setDifficultyDifficult() { alert('Difficult mode selected'); }
+    fullReset() { alert('Game Restarted'); }
 
-    // ------------------- Game Logic -------------------
-    update(deltaTime) {
-      // Move player with arrow keys
-      if (this.keys.includes('ArrowUp')) this.playerY -= 5;
-      if (this.keys.includes('ArrowDown')) this.playerY += 5;
-
-      // Keep player inside canvas
-      if (this.playerY < 0) this.playerY = 0;
-      if (this.playerY > this.height - 50) this.playerY = this.height - 50;
-    }
-
-    draw(ctx) {
-      // Clear background
-      ctx.fillStyle = 'lightblue';
-      ctx.fillRect(0, 0, this.width, this.height);
-
-      // Draw player
-      ctx.fillStyle = 'orange';
-      ctx.fillRect(100, this.playerY, 50, 50);
-
-      // Placeholder enemies
-      ctx.fillStyle = 'red';
-      ctx.fillRect(600, 100, 50, 50);
-      ctx.fillRect(700, 300, 50, 50);
-    }
+    update(deltaTime) { /* your game logic here */ }
+    draw(ctx) { /* your drawing logic here */ }
   }
 
-  // ------------------- Initialize Game -------------------
   game = new Game(canvas.width, canvas.height);
 
   // ------------------- Animation Loop -------------------
   let lastTime = 0;
   function animate(timeStamp) {
-    if (!game.gameStarted || game.paused) {
-      requestAnimationFrame(animate);
-      return;
-    }
     const deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.update(deltaTime);
-    game.draw(ctx);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(!game.paused && game.gameStarted) {
+      game.update(deltaTime);
+      game.draw(ctx);
+    }
 
     requestAnimationFrame(animate);
   }
   requestAnimationFrame(animate);
 
   // ------------------- Buttons -------------------
-  document.getElementById('btnNormal').addEventListener('click', () => { game.setDifficultyNormal(); });
-  document.getElementById('btnDifficult').addEventListener('click', () => { game.setDifficultyDifficult(); });
+  document.getElementById('btnNormal').addEventListener('click', () => game.setDifficultyNormal());
+  document.getElementById('btnDifficult').addEventListener('click', () => game.setDifficultyDifficult());
 
   const btnSound = document.getElementById('btnSound');
   const soundIcon = document.getElementById('soundIcon');
@@ -113,8 +79,8 @@ window.addEventListener('load', function() {
     soundIcon.src = game.soundOn ? 'assets/volume.png' : 'assets/mute.png';
   });
 
-  document.getElementById('btnPausePlay').addEventListener('click', () => { game.togglePause(); });
-  document.getElementById('btnRestart').addEventListener('click', () => { game.fullReset(); });
+  document.getElementById('btnPausePlay').addEventListener('click', () => game.togglePause());
+  document.getElementById('btnRestart').addEventListener('click', () => game.fullReset());
 
   // ------------------- Mobile Controls -------------------
   function startKey(key) { if(!game.keys.includes(key)) game.keys.push(key); }
@@ -131,7 +97,7 @@ window.addEventListener('load', function() {
     el.addEventListener('touchend', e=>{ e.preventDefault(); stopKey(keyMap[btn]); });
   });
 
-  // ------------------- Audio Unlock -------------------
+  // ------------------- Unlock Audio -------------------
   function unlockAudio() {
     Object.values(game.sounds).forEach(s => { s.play().catch(()=>{}); s.pause(); s.currentTime=0; });
   }
