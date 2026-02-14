@@ -78,14 +78,13 @@
 <script src="assets/index2.js"></script>
 
 <script>
-    // Fix volume toggle disappearing
+    // Fixed volume toggle
     const btnSound = document.getElementById('btnSound');
     const soundIcon = document.getElementById('soundIcon');
 
-    if(btnSound){
+    if(btnSound && soundIcon){
         btnSound.addEventListener('click', () => {
             game.soundOn = !game.soundOn;
-            // Ensure both images exist in assets folder: volume.png & mute.png
             soundIcon.src = game.soundOn ? 'assets/volume.png' : 'assets/mute.png';
             btnSound.blur();
         });
