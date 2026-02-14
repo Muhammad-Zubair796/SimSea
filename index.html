@@ -1,94 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimSea</title>
-    <link rel="stylesheet" href="assets/index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SimSea Game</title>
+<link rel="icon" href="assets/favicon.ico">
+<style>
+  canvas { border: 1px solid black; display: block; margin: 20px auto; }
+  button { margin: 5px; }
+</style>
 </head>
 <body>
-<div id="gameContainer">
-    <canvas id="canvas1"></canvas>
 
-    <!-- Difficulty Selection -->
-    <div id="difficulty-selection">
-        <h1>SimSea</h1>
-        <button id="btnNormal" class="btn-difficulty">NORMAL</button>
-        <button id="btnDifficult" class="btn-difficulty">DIFFICULT</button>
-        <p id="credits">Built by M Zubair</p>
-    </div>
+<!-- Canvas -->
+<canvas id="canvas1"></canvas>
 
-    <!-- Top Buttons -->
-    <div id="topIcons">
-        <button id="btnSound" type="button" tabindex="-1">
-            <img id="soundIcon" src="assets/volume.png" width="40" height="40" alt="Sound">
-        </button>
-        <button id="btnPausePlay" type="button">
-            <img id="pausePlayIcon" src="assets/pngwing.com (38).png" width="40" height="40" alt="Pause">
-        </button>
-        <button id="btnRestartIcon" type="button">
-            <img src="assets/revision-1 - Copy.png" width="40" height="40" alt="Restart">
-        </button>
-    </div>
+<!-- Buttons -->
+<div id="difficulty-selection">
+  <button id="btnNormal">Normal</button>
+  <button id="btnDifficult">Difficult</button>
+</div>
+<button id="btnSound"><img id="soundIcon" src="assets/volume.png" width="24"></button>
+<button id="btnPausePlay"><img id="pausePlayIcon" src="assets/pngwing.com (38).png" width="24"></button>
+<button id="btnRestart">Restart</button>
 
-    <!-- Controls -->
-    <div id="controls">
-        <button id="btnShoot" class="control-btn">Shoot</button>
-        <div id="upDown">
-            <button id="btnUp" class="control-btn">Up</button>
-            <button id="btnDown" class="control-btn">Down</button>
-        </div>
-    </div>
-
-    <button id="btnRestart">Restart</button>
+<!-- Mobile Controls -->
+<div>
+  <button id="btnUp">Up</button>
+  <button id="btnDown">Down</button>
+  <button id="btnShoot">Shoot</button>
 </div>
 
-<!-- Hidden Game Assets -->
-<img id="player" src="assets/player (1).png" style="display:none;">
-<img id="angler1" src="assets/angler1.png" style="display:none;">
-<img id="angler2" src="assets/angler2.png" style="display:none;">
-<img id="lucky" src="assets/lucky.png" style="display:none;">
-<img id="hiveWhale" src="assets/hivewhale.png" style="display:none;">
-<img id="drone" src="assets/drone.png" style="display:none;">
-<img id="projectile" src="assets/projectile.png" style="display:none;">
-<img id="particle" src="assets/gears.png" style="display:none;">
-<img id="smoke" src="assets/smokeExplosion.png" style="display:none;">
-<img id="fire" src="assets/fireExplosion.png" style="display:none;">
-<img id="restartthegameanytime" src="assets/revision-1 - Copy.png" style="display:none;">
-<img id="playafterpause" src="assets/pngwing.com (39).png" style="display:none;">
-<img id="pausethegame" src="assets/pngwing.com (38).png" style="display:none;">
-<img id="layer1" src="assets/layer1.png" style="display:none;">
-<img id="layer2" src="assets/layer2.png" style="display:none;">
-<img id="layer3" src="assets/layer3.png" style="display:none;">
-<img id="layer4" src="assets/layer4.png" style="display:none;">
+<!-- Audio elements -->
+<audio id="shoot" src="assets/shoot.mp3"></audio>
+<audio id="powerUp" src="assets/powerUp.mp3"></audio>
+<audio id="levelUp" src="assets/levelUp.mp3"></audio>
+<audio id="collectpoints" src="assets/collectpoints.mp3"></audio>
+<audio id="playerexplosion" src="assets/playerexplosion.mp3"></audio>
+<audio id="droneattack" src="assets/droneattack.mp3"></audio>
+<audio id="levelfailed" src="assets/levelfailed.mp3"></audio>
+<audio id="extremepower" src="assets/extremepower.mp3"></audio>
+<audio id="whalesound" src="assets/whalesound.mp3"></audio>
 
-<!-- Audio -->
-<audio id="shoot" src="assets/shoot-2-81137.mp3" preload="auto"></audio>
-<audio id="powerUp" src="assets/powerup.mp3" preload="auto"></audio>
-<audio id="levelUp" src="assets/goodresult-82807.mp3" preload="auto"></audio>
-<audio id="collectpoints" src="assets/collect-points-190037.mp3" preload="auto"></audio>
-<audio id="playerexplosion" src="assets/explosion-fx-343683.mp3" preload="auto"></audio>
-<audio id="whalesound" src="assets/whale-song-382729.mp3" preload="auto"></audio>
-<audio id="droneattack" src="assets/attack-theme-382730.mp3" preload="auto"></audio>
-<audio id="levelfailed" src="assets/brass-fail-8-b-207131.mp3" preload="auto"></audio>
-<audio id="extremepower" src="assets/stinger-2-100350.mp3" preload="auto"></audio>
-<audio id="startscreensong" src="assets/Tommee_Profitt_-_In_The_End_Tried_So_Hard__CeeNaija.com_.mp3" preload="auto" loop></audio>
-
-<!-- Main JS -->
-<script src="assets/index2.js"></script>
-
-<script>
-    // Fixed volume toggle
-    const btnSound = document.getElementById('btnSound');
-    const soundIcon = document.getElementById('soundIcon');
-
-    if(btnSound && soundIcon){
-        btnSound.addEventListener('click', () => {
-            game.soundOn = !game.soundOn;
-            soundIcon.src = game.soundOn ? 'assets/volume.png' : 'assets/mute.png';
-            btnSound.blur();
-        });
-    }
-</script>
+<script src="index2.js"></script>
 </body>
 </html>
