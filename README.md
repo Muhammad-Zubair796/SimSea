@@ -12,6 +12,12 @@
 Dive into the ocean, fight dangerous sea creatures, collect power-ups, and survive increasingly intense waves.
 
 ---
+## 🎮 Play Live
+
+You can play SimSea directly in your browser here:
+
+[Play SimSea Online](https://https://muhammad-zubair796.github.io/SimSea/)
+
 
 ## 📱 Download Android APK
 
@@ -21,6 +27,7 @@ Dive into the ocean, fight dangerous sea creatures, collect power-ups, and survi
 Install on your Android device and play.
 
 ---
+
 
 ## 🎮 Features
 
