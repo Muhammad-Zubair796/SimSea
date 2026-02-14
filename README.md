@@ -3,7 +3,6 @@
 ![Repo Size](https://img.shields.io/github/repo-size/Muhammad-Zubair796/SimSea)
 ![Downloads](https://img.shields.io/github/downloads/Muhammad-Zubair796/SimSea/total)
 ![Stars](https://img.shields.io/github/stars/Muhammad-Zubair796/SimSea?style=social)
-![License](https://img.shields.io/badge/license-learning-blue)
 ![JavaScript](https://img.shields.io/badge/Built%20With-JavaScript-yellow)
 ![Android](https://img.shields.io/badge/Platform-Android-green)
 ![Release](https://img.shields.io/github/v/release/Muhammad-Zubair796/SimSea)
@@ -16,7 +15,7 @@ Dive into the ocean, fight dangerous sea creatures, collect power-ups, and survi
 
 ## 📱 Download Android APK
 
-[![Download APK](https://img.shields.io/badge/Download-Android_APK-blue?style=for-the-badge&logo=android)](https://github.com/Muhammad-Zubair796/SimSea/releases/latest)
+[![Download APK](https://img.shields.io/badge/Download-SimSea_APK-green?style=for-the-badge&logo=android)](https://github.com/Muhammad-Zubair796/SimSea/releases/download/v1.0/SimSea.apk)
 
 
 Install on your Android device and play.
