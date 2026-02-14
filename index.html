@@ -10,6 +10,7 @@
 <div id="gameContainer">
     <canvas id="canvas1"></canvas>
 
+    <!-- Difficulty Selection -->
     <div id="difficulty-selection">
         <h1>SimSea</h1>
         <button id="btnNormal" class="btn-difficulty">NORMAL</button>
@@ -17,6 +18,7 @@
         <p id="credits">Built by M Zubair</p>
     </div>
 
+    <!-- Top Buttons -->
     <div id="topIcons">
         <button id="btnSound" type="button" tabindex="-1">
             <img id="soundIcon" src="assets/volume.png" width="40" height="40" alt="Sound">
@@ -29,6 +31,7 @@
         </button>
     </div>
 
+    <!-- Controls -->
     <div id="controls">
         <button id="btnShoot" class="control-btn">Shoot</button>
         <div id="upDown">
@@ -59,6 +62,7 @@
 <img id="layer3" src="assets/layer3.png" style="display:none;">
 <img id="layer4" src="assets/layer4.png" style="display:none;">
 
+<!-- Audio -->
 <audio id="shoot" src="assets/shoot-2-81137.mp3" preload="auto"></audio>
 <audio id="powerUp" src="assets/powerup.mp3" preload="auto"></audio>
 <audio id="levelUp" src="assets/goodresult-82807.mp3" preload="auto"></audio>
@@ -70,6 +74,22 @@
 <audio id="extremepower" src="assets/stinger-2-100350.mp3" preload="auto"></audio>
 <audio id="startscreensong" src="assets/Tommee_Profitt_-_In_The_End_Tried_So_Hard__CeeNaija.com_.mp3" preload="auto" loop></audio>
 
+<!-- Main JS -->
 <script src="assets/index2.js"></script>
+
+<script>
+    // Fix volume toggle disappearing
+    const btnSound = document.getElementById('btnSound');
+    const soundIcon = document.getElementById('soundIcon');
+
+    if(btnSound){
+        btnSound.addEventListener('click', () => {
+            game.soundOn = !game.soundOn;
+            // Ensure both images exist in assets folder: volume.png & mute.png
+            soundIcon.src = game.soundOn ? 'assets/volume.png' : 'assets/mute.png';
+            btnSound.blur();
+        });
+    }
+</script>
 </body>
 </html>
