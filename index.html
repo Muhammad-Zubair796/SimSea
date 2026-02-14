@@ -4,19 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimSea</title>
-
-    <!-- Google Fonts link removed - using built-in Arial (works offline everywhere) -->
-
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-<!-- GAME CONTAINER -->
 <div id="gameContainer">
-
-    <!-- CANVAS -->
     <canvas id="canvas1"></canvas>
 
-    <!-- DIFFICULTY SELECTION MENU -->
+    <!-- Difficulty Selection -->
     <div id="difficulty-selection">
         <h1>SimSea</h1>
         <button id="btnNormal" class="btn-difficulty">NORMAL</button>
@@ -24,20 +18,20 @@
         <p id="credits">Built by M Zubair</p>
     </div>
 
-    <!-- ALWAYS VISIBLE TOP-RIGHT ICONS -->
+    <!-- Top Buttons -->
     <div id="topIcons">
         <button id="btnSound" type="button" tabindex="-1">
-            <img id="soundIcon" src="volume.png" width="40" height="40" alt="Sound">
+            <img id="soundIcon" src="assets/volume.png" width="40" height="40" alt="Sound">
         </button>
         <button id="btnPausePlay" type="button">
-            <img id="pausePlayIcon" src="pngwing.com (38).png" width="40" height="40" alt="Pause">
+            <img id="pausePlayIcon" src="assets/pngwing.com (38).png" width="40" height="40" alt="Pause">
         </button>
         <button id="btnRestartIcon" type="button">
-            <img src="revision-1 - Copy.png" width="40" height="40" alt="Restart">
+            <img src="assets/revision-1 - Copy.png" width="40" height="40" alt="Restart">
         </button>
     </div>
 
-    <!-- ON-SCREEN CONTROLS -->
+    <!-- Controls -->
     <div id="controls">
         <button id="btnShoot" class="control-btn">Shoot</button>
         <div id="upDown">
@@ -46,47 +40,56 @@
         </div>
     </div>
 
-    <!-- GAME OVER RESTART BUTTON (text) -->
     <button id="btnRestart">Restart</button>
 </div>
 
-<!-- HIDDEN GAME ASSETS -->
-<!-- Characters -->
-<img id="player" src="player (1).png" style="display:none;">
-<img id="angler1" src="angler1.png" style="display:none;">
-<img id="angler2" src="angler2.png" style="display:none;">
-<img id="lucky" src="lucky.png" style="display:none;">
-<img id="hiveWhale" src="hivewhale.png" style="display:none;">
-<img id="drone" src="drone.png" style="display:none;">
+<!-- Hidden Game Assets -->
+<img id="player" src="assets/player (1).png" style="display:none;">
+<img id="angler1" src="assets/angler1.png" style="display:none;">
+<img id="angler2" src="assets/angler2.png" style="display:none;">
+<img id="lucky" src="assets/lucky.png" style="display:none;">
+<img id="hiveWhale" src="assets/hivewhale.png" style="display:none;">
+<img id="drone" src="assets/drone.png" style="display:none;">
+<img id="projectile" src="assets/projectile.png" style="display:none;">
+<img id="particle" src="assets/gears.png" style="display:none;">
+<img id="smoke" src="assets/smokeExplosion.png" style="display:none;">
+<img id="fire" src="assets/fireExplosion.png" style="display:none;">
+<img id="restartthegameanytime" src="assets/revision-1 - Copy.png" style="display:none;">
+<img id="playafterpause" src="assets/pngwing.com (39).png" style="display:none;">
+<img id="pausethegame" src="assets/pngwing.com (38).png" style="display:none;">
+<img id="layer1" src="assets/layer1.png" style="display:none;">
+<img id="layer2" src="assets/layer2.png" style="display:none;">
+<img id="layer3" src="assets/layer3.png" style="display:none;">
+<img id="layer4" src="assets/layer4.png" style="display:none;">
 
-<!-- Props -->
-<img id="projectile" src="projectile.png" style="display:none;">
-<img id="particle" src="gears.png" style="display:none;">
-<img id="smoke" src="smokeExplosion.png" style="display:none;">
-<img id="fire" src="fireExplosion.png" style="display:none;">
-<img id="restartthegameanytime" src="revision-1 - Copy.png" style="display:none;">
-<img id="playafterpause" src="pngwing.com (39).png" style="display:none;">
-<img id="pausethegame" src="pngwing.com (38).png" style="display:none;">
+<!-- Audio -->
+<audio id="shoot" src="assets/shoot-2-81137.mp3" preload="auto"></audio>
+<audio id="powerUp" src="assets/powerup.mp3" preload="auto"></audio>
+<audio id="levelUp" src="assets/goodresult-82807.mp3" preload="auto"></audio>
+<audio id="collectpoints" src="assets/collect-points-190037.mp3" preload="auto"></audio>
+<audio id="playerexplosion" src="assets/explosion-fx-343683.mp3" preload="auto"></audio>
+<audio id="whalesound" src="assets/whale-song-382729.mp3" preload="auto"></audio>
+<audio id="droneattack" src="assets/attack-theme-382730.mp3" preload="auto"></audio>
+<audio id="levelfailed" src="assets/brass-fail-8-b-207131.mp3" preload="auto"></audio>
+<audio id="extremepower" src="assets/stinger-2-100350.mp3" preload="auto"></audio>
+<audio id="startscreensong" src="assets/Tommee_Profitt_-_In_The_End_Tried_So_Hard__CeeNaija.com_.mp3" preload="auto" loop></audio>
 
-<!-- Environment layers (used in game) -->
-<img id="layer1" src="layer1.png" style="display:none;">
-<img id="layer2" src="layer2.png" style="display:none;">
-<img id="layer3" src="layer3.png" style="display:none;">
-<img id="layer4" src="layer4.png" style="display:none;">
+<!-- Main JS -->
+<script src="assets/index2.js"></script>
 
-<!-- Sounds -->
-<audio id="shoot" src="shoot-2-81137.mp3" preload="auto"></audio>
-<audio id="powerUp" src="powerup.mp3" preload="auto"></audio>
-<audio id="levelUp" src="goodresult-82807.mp3" preload="auto"></audio>
-<audio id="collectpoints" src="collect-points-190037.mp3" preload="auto"></audio>
-<audio id="playerexplosion" src="explosion-fx-343683.mp3" preload="auto"></audio>
-<audio id="whalesound" src="whale-song-382729.mp3" preload="auto"></audio>
-<audio id="droneattack" src="attack-theme-382730.mp3" preload="auto"></audio>
-<audio id="levelfailed" src="brass-fail-8-b-207131.mp3" preload="auto"></audio>
-<audio id="extremepower" src="stinger-2-100350.mp3" preload="auto"></audio>
-<audio id="startscreensong" src="Tommee_Profitt_-_In_The_End_Tried_So_Hard__CeeNaija.com_.mp3" preload="auto" loop></audio>
+<script>
+    // Fix volume toggle disappearing
+    const btnSound = document.getElementById('btnSound');
+    const soundIcon = document.getElementById('soundIcon');
 
-<!-- GAME SCRIPT -->
-<script src="index2.js"></script>
+    if(btnSound){
+        btnSound.addEventListener('click', () => {
+            game.soundOn = !game.soundOn;
+            // Ensure both images exist in assets folder: volume.png & mute.png
+            soundIcon.src = game.soundOn ? 'assets/volume.png' : 'assets/mute.png';
+            btnSound.blur();
+        });
+    }
+</script>
 </body>
 </html>
