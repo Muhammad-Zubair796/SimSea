@@ -16,8 +16,8 @@ Dive into the ocean, fight dangerous sea creatures, collect power-ups, and survi
 
 ## 📱 Download Android APK
 
-👉 **Latest Release:**
-https://github.com/Muhammad-Zubair796/SimSea/releases/latest
+[![Download APK](https://img.shields.io/badge/Download-Android_APK-blue?style=for-the-badge&logo=android)](https://github.com/Muhammad-Zubair796/SimSea/releases/latest)
+
 
 Install on your Android device and play.
 
